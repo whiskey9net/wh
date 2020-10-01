@@ -8,4 +8,6 @@ services:
       - MYSQL_ROOT_PASSWORD=mysql1pass
     ports:
       - "${listening_ip}:3306:3306"
+    volumes:
+      - ${wh_home}/data/mysql1/data:/var/lib/mysql
 

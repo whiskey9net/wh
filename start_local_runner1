@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source secrets
+docker-compose -p runner1 -f compose-runner1.yml up -d --build
