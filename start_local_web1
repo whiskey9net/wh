@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -a
+source secrets
+
+docker-compose -p web1 -f compose-web1.yml up -d --build

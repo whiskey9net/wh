@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "**** init_mysql1.sh ****"
+
+time=`date +'%Y-%m-%d %T'`
+echo "$time"
+
+#-- populate mysql1 -------------------------
+mysql -h $bind_ip -pmysql1pass -e "CREATE DATABASE IF NOT EXISTS time" || exit 1
+mysql -h $bind_ip -pmysql1pass time -e "CREATE TABLE IF NOT EXISTS t_time (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, c_time VARCHAR(30) NOT NULL)" || exit 1
+mysql -h $bind_ip -pmysql1pass time -e "INSERT INTO t_time (c_time) VALUES (\"$time\")" || exit 1
+

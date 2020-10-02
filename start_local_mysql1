@@ -3,4 +3,4 @@
 set -a
 source secrets
 
-docker-compose -p mysql1 -f compose-mysql1.yml up -d
+docker-compose -p mysql1 -f compose-mysql1.yml up -d --force-recreate

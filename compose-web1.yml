@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  web1:
+    hostname: "web1"
+    build: builds/web1
+    env_file:
+      - secrets
+    ports:
+      - "${bind_ip}:8080:80"
+    volumes:
+      - ${wh_home}/src/web1/html:/var/www/html

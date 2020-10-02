@@ -5,5 +5,5 @@ services:
     build: builds/runner1
     env_file:
       - secrets
-    command: /init.sh
+    command: /init
 

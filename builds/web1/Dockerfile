@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM php:7.2-apache
 
 SHELL ["/bin/bash", "-c"]
 
@@ -9,8 +9,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   curl \
   wget \
   iproute2 \
-  telnet \
-  mysql-client
+  telnet
 
-ADD init /init
-ADD init_mysql1 /init_mysql1
+RUN docker-php-ext-install mysqli
+

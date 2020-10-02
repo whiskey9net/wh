@@ -3,7 +3,10 @@
 echo "**** Starting: [runner1] ****"
 echo
 echo "--- ENV ---------------------"
-echo "listening_ip: ${listening_ip}"
+echo "bind_ip: ${bind_ip}"
 echo "-----------------------------"
 
-sleep infinity
+while true; do
+    /init_mysql1
+    sleep 1
+done
