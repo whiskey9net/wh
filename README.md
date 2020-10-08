@@ -15,7 +15,7 @@ CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name
 
 #### Docker
 
-Swarm init (local)
+Swarm init (local):
 ````
 docker swarm init --advertise-addr 127.0.0.1 --listen-addr 127.0.0.1 --data-path-addr 127.0.0.1
 ````
