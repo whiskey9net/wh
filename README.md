@@ -17,6 +17,10 @@ sudo touch /forcefsck
 CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name
 ````
 
+````
+wget percona.com/get/pt-show-grants
+````
+
 #### Docker
 
 Swarm init (local):
