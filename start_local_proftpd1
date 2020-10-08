@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -a
+source secrets
+
+docker-compose -p proftpd1 -f compose-proftpd1.yml up -d --build

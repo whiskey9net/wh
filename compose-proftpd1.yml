@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+  proftpd1:
+    hostname: "proftpd1"
+    build: builds/proftpd1
+    #ports:
+    #  - "${bind_ip}:3306:3306"
+    #volumes:
+    #  - ${wh_home}/data/mysql1/data:/var/lib/mysql
+    command: sleep infinity
