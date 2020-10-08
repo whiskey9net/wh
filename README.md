@@ -7,6 +7,10 @@ Project "Warehouse". Use it on your own risk!!
 git add -A; git commit -m "up"; git push
 ````
 
+````
+sudo touch /forcefsck
+````
+
 #### MySQL
 
 ````
