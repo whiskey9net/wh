@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  mysql3-e:
+    hostname: "mysql3-e"
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql3epass
+    ports:
+      - "${bind_ip}:3403:3306"
+    volumes:
+      - ${wh_home}/extra/data/mysql3-e/data:/var/lib/mysql
+

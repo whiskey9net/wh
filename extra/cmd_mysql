@@ -1,0 +1,77 @@
+#!/bin/bash
+
+#docker exec -it mysql1-e_mysql1-e_1 mysql -pmysql1epass -e "show databases"
+
+reset_m1 () {
+    docker stop mysql1-e_mysql1-e_1
+    sudo rm -rf data/mysql1-e/data/*
+    ./start_local_mysql1-e
+}
+
+reset_m2 () {
+    docker stop mysql2-e_mysql2-e_1
+    sudo rm -rf data/mysql2-e/data/*
+    ./start_local_mysql2-e
+}
+
+reset_m3 () {
+    docker stop mysql3-e_mysql3-e_1
+    sudo rm -rf data/mysql3-e/data/*
+    ./start_local_mysql3-e
+}
+
+
+show_dbs_m1 () {
+    echo "[mysql1-e]"
+    docker exec -it mysql1-e_mysql1-e_1 mysql -pmysql1epass -e "show databases"
+}
+
+show_dbs_m2 () {
+    echo "[mysql2-e]"
+    docker exec -it mysql2-e_mysql2-e_1 mysql -pmysql2epass -e "show databases"
+}
+
+show_dbs_m3 () {
+    echo "[mysql3-e]"
+    docker exec -it mysql3-e_mysql3-e_1 mysql -pmysql3epass -e "show databases"
+}
+
+
+
+#-----------------------------------------------------------------------------------
+
+if [[ $1 == "reset_m1" ]]; then
+    reset_m1
+
+elif [[ $1 == "reset_m2" ]]; then
+    reset_m2
+
+elif [[ $1 == "reset_m3" ]]; then
+    reset_m3
+
+elif [[ $1 == "reset_all" ]]; then
+    reset_m1
+    reset_m2
+    reset_m3
+
+elif [[ $1 == "show_dbs_m1" ]]; then
+    show_dbs_m1
+
+elif [[ $1 == "show_dbs_m2" ]]; then
+    show_dbs_m2
+
+elif [[ $1 == "show_dbs_all" ]]; then
+    show_dbs_m1
+    show_dbs_m2
+    show_dbs_m3
+
+else
+    echo "Usage:"
+    echo "  - cmd_mysql  show_dbs_m1"
+    echo "  - cmd_mysql  show_dbs_m2"
+    echo "  - cmd_mysql  show_dbs_all"
+    echo "  - cmd_mysql  reset_m1"
+    echo "  - cmd_mysql  reset_m2"
+    echo "  - cmd_mysql  reset_all"
+fi
+   

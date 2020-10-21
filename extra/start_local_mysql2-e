@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -a
+source ../secrets
+
+docker-compose -p mysql2-e -f compose-mysql2-e.yml up -d --force-recreate
